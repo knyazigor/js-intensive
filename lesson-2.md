@@ -80,3 +80,48 @@ fetch('https://api.example.com/data', { signal })
     }
   });
 ```
+
+## 4. Примеры создания примитивных значений
+### string
+```
+const a = 'JS is awesome' // 'JS is awesome'
+const b = String('JS is still awesome!') // 'JS is still awesome!'
+const c = '' + 123 // '123'
+```
+
+### number
+```
+const a = 1 // 1
+const b = Number('2') // 2
+```
+### boolean
+```
+const a = true //true
+const b = Boolean('1') // true;
+const c = Boolean('') // false;
+const d = !!1 //true
+```
+### null 
+```
+const a = null // null
+const str = 'JS is awesome'
+const b = str.match(/js/g) // null
+```
+### undefined
+```
+const a = undefined // undfined
+const f = () => {}
+const b = f() // undefined
+```
+### Symbol
+```
+const a = Symbol() // Symbol()
+const b = Symbol('123') // Symbol(123)
+```
+
+### BigInt
+```
+const a = 1234567890123456789012345678901234567890n // 1234567890123456789012345678901234567890n
+const b = BigInt('1234567890123456789012345678901234567890') // 1234567890123456789012345678901234567890n
+const c = BigInt(10) //10n
+```
