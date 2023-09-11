@@ -47,3 +47,36 @@ Content-Length: 0
 ### 5. Обработка ошибок
 
 *QUIC* предлагает использовать усовершенствованный механизм восстановления после потерь и прямое исправление ошибок, чтобы справляться с ошибочными пакетами, особенно в неоднородных и медленных беспроводных сетях, подверженных высокому уровню ошибок при передаче.
+
+## 3. Способы отмены запроса в JS
+
+Для отмены запросов в JS можно использовать `AbortController`.
+
+`AbortController` — это встроенный в JS класс, который позволяет управлять асинхронными операциями, такими как `fetch`, `Promise`, `setTimeout` и `setInterval`. С его помощью можно прерывать выполнение асинхронных задач и предотвращать нежелательные побочные эффекты от выполнения задач, которые уже неактуальны.
+
+Пример использования `AbortController` для отмены Fetch-запроса:
+
+```
+const controller = new AbortController();
+
+// После создания экземпляра AbortController, можно получить экземпляр AbortSignal, используя свойство signal:
+
+const signal = controller.signal;
+
+// Имитация отмены запроса через 3 секунды
+
+setTimeout(() => {
+  controller.abort();
+}, 3000);
+
+fetch('https://api.example.com/data', { signal })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => {
+    if (error.name === 'AbortError') {
+      console.log('Fetch request aborted');
+    } else {
+      console.error('Fetch request failed:', error);
+    }
+  });
+```
