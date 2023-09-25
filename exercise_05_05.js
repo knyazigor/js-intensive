@@ -1,6 +1,6 @@
 const mockFetch = (url) => {
-  const MIN = 100;
-  const MAX = 800;  
+  const MIN_DELAY = 100;
+  const MAX_DELAY = 800;  
   const PROBABILITY = 0.1;
 
   const delay = Math.random() * (MAX - MIN) + MIN;
