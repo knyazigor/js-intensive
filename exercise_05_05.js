@@ -3,7 +3,7 @@ const mockFetch = (url) => {
   const MAX_DELAY = 800;  
   const PROBABILITY = 0.1;
 
-  const delay = Math.random() * (MAX - MIN) + MIN;
+  const delay = Math.random() * (MAX_DELAY - MIN_DELAY) + MIN_DELAY;
   
   const p = new Promise((res, rej) => {
     const success = Math.random() < PROBABILITY;
